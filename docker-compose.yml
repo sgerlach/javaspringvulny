@@ -11,7 +11,7 @@ services:
 
   javavulny:
     build: .
-    image: stackhawk/javavulny:latest
+    image: 478468688580.dkr.ecr.us-east-1.amazonaws.com/hawkdog
     container_name: javavulny
     ports:
       - "9000:9000"
