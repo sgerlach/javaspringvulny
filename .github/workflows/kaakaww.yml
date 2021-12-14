@@ -19,7 +19,7 @@ jobs:
       - name: Check out Repo!
         uses: actions/checkout@v2
       - name: Build and Run Vulny!
-        run: docker compose up
+        run: docker-compose build && docker-compose up -d
       - name: HawkScan
         uses: stackhawk/hawkscan-action@v1.3.2
         with:
