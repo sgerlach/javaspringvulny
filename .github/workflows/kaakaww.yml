@@ -23,4 +23,4 @@ jobs:
       - name: HawkScan
         uses: stackhawk/hawkscan-action@v1.3.2
         with:
-          apiKey: ${{ secrets.HAWK_API_KEY }}
+          apiKey: ${{ secrets.HAWK_API_TOKEN }}
