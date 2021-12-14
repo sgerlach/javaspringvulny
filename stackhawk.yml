@@ -23,6 +23,7 @@ app:
       path: /search
       success: ".*200.*"
 hawk:
+  failureThreshold: high
   spider:
     maxDurationMinutes: 5
 
