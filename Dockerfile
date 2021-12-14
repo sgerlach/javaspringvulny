@@ -1,7 +1,8 @@
-FROM openjdk:11.0.10-jdk-slim
+FROM openjdk:11.0.10-jdk
 
 RUN mkdir /javavulny /app
 COPY . /javavulny/
+RUN sed -i 's/localhost\:5432/db\:5432/' /javavulny/src/main/resources/application.properties
 
 RUN cd /javavulny \
 && ./gradlew --no-daemon build \
@@ -11,6 +12,8 @@ RUN cd /javavulny \
 && rm -Rf /javavulny /root/.gradle/
 
 WORKDIR /app
+# Using remote DB not local
+#COPY ./db ./db
 
 ENV PWD=/app
 CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app/java-spring-vuly-0.1.0.jar"]
