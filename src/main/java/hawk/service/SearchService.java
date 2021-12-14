@@ -17,15 +17,15 @@ import java.util.logging.Logger;
 
 
 public class SearchService {
-
-    private static final Logger LOGGER = Logger.getLogger(SearchService.class.getName());
-
+    private static final Logger LOGGER = Logger.getLogger( SearchService.class.getName() );
     @Autowired
     EntityManager entityManager;
 
     public List<Item> search(Search search) {
+        LOGGER.setLevel(Level.FINE);
+
         final Session session = (Session) entityManager.unwrap(Session.class);
-        List items = session.doReturningWork(new ReturningWork<List<Item>>() {
+        return session.doReturningWork(new ReturningWork<List<Item>>() {
             @Override
             public List<Item> execute(Connection connection) throws SQLException {
                 List<Item> items = new ArrayList<>();
@@ -43,8 +43,7 @@ public class SearchService {
                 PreparedStatement statement = connection.prepareStatement(query);
                 statement.setString(1, "%" + search.getSearchText() + "%");
                 LOGGER.log(Level.INFO, "SQL Query " + statement);
-                ResultSet rs = statement.executeQuery();
-                */
+                ResultSet rs = statement.executeQuery();*/
 
                 while (rs.next()) {
                     items.add(new Item(rs.getLong("id"), rs.getString("name"), rs.getString("description")));
@@ -52,7 +51,6 @@ public class SearchService {
                 return items;
             }
         });
-        return items;
     }
 
 
