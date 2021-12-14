@@ -21,6 +21,6 @@ jobs:
       - name: Build and Run Vulny!
         run: docker compose up
       - name: HawkScan
-        uses: stackhawk/hawkscan-action@1.3.2
+        uses: stackhawk/hawkscan-action@v1.3.2
         with:
           apiKey: ${{ secrets.HAWK_API_KEY }}
