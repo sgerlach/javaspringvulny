@@ -119,7 +119,7 @@ public class MultiHttpSecurityConfig {
     }
 
     @Configuration
-    @Order(4)
+    @Order(5)
     public static class FormLoginWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
@@ -137,6 +137,17 @@ public class MultiHttpSecurityConfig {
                         .permitAll();
         }
     }
+
+   /* @Configuration
+    @Order(1)
+    public static class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            http
+                .headers()
+                    .contentSecurityPolicy("script-src 'self' https://evildooer.com");
+        }
+    }*/
 
     @Bean
     public UserDetailsService userDetailsService() {

@@ -1,6 +1,6 @@
 app:
-  applicationId: ${APP_ID:327a2190-9753-4943-a19a-1f8f256a20ec}
-  env: ${APP_ENV:dev}
+  applicationId: ${APP_ID:44d63acb-a50b-4ab5-baa3-9508bb12691f}
+  env: ${APP_ENV:Development}
   host: ${APP_HOST:https://localhost:9000}
   excludePaths:
     - "/logout"
@@ -26,4 +26,3 @@ hawk:
   failureThreshold: high
   spider:
     maxDurationMinutes: 5
-
