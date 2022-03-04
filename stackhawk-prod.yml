@@ -1,2 +1,3 @@
 app:
   env: Production
+  host: https://thisistherealhost.com
