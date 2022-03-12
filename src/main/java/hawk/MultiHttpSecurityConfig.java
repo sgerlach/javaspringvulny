@@ -119,7 +119,7 @@ public class MultiHttpSecurityConfig {
     }
 
     @Configuration
-    @Order(5)
+    @Order(4)
     public static class FormLoginWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
@@ -160,5 +160,4 @@ public class MultiHttpSecurityConfig {
 
         return new InMemoryUserDetailsManager(user);
     }
-
 }
