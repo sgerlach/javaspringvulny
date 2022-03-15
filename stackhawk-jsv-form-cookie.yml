@@ -1,9 +1,12 @@
 hawk:
   spider:
     maxDurationMinutes: 2
+  scan:
+    policyName: LOG4SHELL
 app:
+  applicationId: ${APP_ID:44d63acb-a50b-4ab5-baa3-9508bb12691f}
   openApiConf:
-    path: /openapi.json
+    filePath: openapi.yaml
   env: Development
   host: ${APP_HOST:https://localhost:9000}
   excludePaths:

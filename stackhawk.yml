@@ -1,7 +1,7 @@
 app:
   applicationId: ${APP_ID:44d63acb-a50b-4ab5-baa3-9508bb12691f}
   env: ${APP_ENV:Development}
-  host: ${APP_HOST:https://localhost:9000}
+  host: ${APP_HOST:http://localhost:9000}
   excludePaths:
     - "/logout"
   antiCsrfParam: "_csrf"

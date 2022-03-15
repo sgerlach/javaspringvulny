@@ -125,7 +125,17 @@ public class MultiHttpSecurityConfig {
         protected void configure(HttpSecurity http) throws Exception {
             http
                     .authorizeRequests()
-                        .antMatchers("/", "/jwt-auth", "/token-auth", "/basic-auth", "/openapi", "/openapi.yaml", "/h2-console/**").permitAll()
+                        .antMatchers(
+                                "/",
+                                "/jwt-auth",
+                                "/token-auth",
+                                "/basic-auth",
+                                "/openapi/**",
+                                "/openapi.yaml",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/log4j"
+                        ).permitAll()
                         .anyRequest().authenticated()
                     .and()
                         .formLogin()
