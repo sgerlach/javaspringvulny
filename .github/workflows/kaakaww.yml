@@ -24,3 +24,6 @@ jobs:
         uses: stackhawk/hawkscan-action@v2.0.3
         with:
           apiKey: ${{ secrets.HAWK_API_TOKEN }}
+        env:
+          COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
+          BRANCH_NAME: ${{ github.head_ref }}
