@@ -14,13 +14,18 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   stackhawk-hawkscan:
+    name: Runs the application and the HawkScan test of the app
     runs-on: ubuntu-latest
     steps:
-      - name: Check out Repo!
+      - name: Checkout code
         uses: actions/checkout@v2
       - name: Build and Run Vulny!
         run: docker-compose build && docker-compose up -d
       - name: HawkScan
-        uses: stackhawk/hawkscan-action@v1.3.2
+        uses: stackhawk/hawkscan-action@v2.0.0
         with:
-          apiKey: ${{ secrets.HAWK_API_TOKEN }}
+          apiKey: ${{ secrets.HAWK_API_KEY }}
+          configurationFiles: stackhawk.d/stackhawk-custom-params.yml stackhawk.d/stackhawk-github-pr.yml
+        env:
+          COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
+          BRANCH_NAME: ${{ github.head_ref }}
